@@ -11,6 +11,7 @@ fragile RegExps!
 
     @ParseFeed = (xml) ->
       $ = cheerio.load xml, xmlMode: true
+      console.log $
       feed = {}
       feed.title = Text.clean $('title').first().text() or ""
       feed.link = Text.clean $('link').first().text() or ""
@@ -44,6 +45,7 @@ relevant data.
       data.pubDate = findPubDate $
       data.image = findImage $
       text = "#{data.title} #{data.description}"
+      data.content = text
       data.language = Text.detectLanguage text
       foreignTags = $("category,categories").map((i,e) -> $(e).text()).get()
       extractTags = Yaki(text, language: data.language).extract()
