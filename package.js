@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'anonyfox:scrape',
+  name: 'hoangdo94:scrape',
   version: '0.0.10',
   summary: 'Scrape any Website or RSS/Atom-Feed with ease',
-  git: 'https://github.com/Anonyfox/meteor-scrape',
+  git: 'https://github.com/hoangdo94/meteor-scrape',
   documentation: 'README.md'
 });
 
@@ -51,7 +51,7 @@ Package.onTest(function(api) {
     'coffeescript',
     'underscore',
   ],['client','server']);
-  api.use('anonyfox:scrape');
+  api.use('hoangdo94:scrape');
   api.addFiles([ // sample data
     'sampledata/sites/venturebeat-website.html',
     'sampledata/sites/focus-website.html',

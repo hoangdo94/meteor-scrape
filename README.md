@@ -1,3 +1,5 @@
+# A clone of anonyfox:scrape for fitting my own needs
+
 # Scraping Web Stuff with Meteor
 
 This package adds some sophisticated scraping utilities to your meteor app. You can request ordinary
