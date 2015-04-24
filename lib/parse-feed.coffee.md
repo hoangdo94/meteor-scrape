@@ -44,13 +44,9 @@ relevant data.
       data.pubDate = findPubDate $
       data.image = findImage $
       text = "#{data.title} #{data.description}"
-      console.log text
       data.language = Text.detectLanguage text
-      foreignTags = $("category,categories").map((i,e) -> $(e).text()).get()
-      console.log foreignTags
-      extractTags = Yaki(text, language: data.language).extract()
-      hashTags = text.match(/(^|\s)#([^\s\.\/\\\[\]{}`~!@#$%^&*()<>,?;:'"]+)/g)
-      data.tags = _.union foreignTags, extractTags, hashTags
+      data.foreignTags = $("category,categories").map((i,e) -> $(e).text()).get()
+      data.extractTags = Yaki(text, language: data.language).extract()
       return data
 
 The following helper functions are used by the mapItem function, for data
