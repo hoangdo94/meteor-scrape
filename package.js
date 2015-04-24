@@ -1,6 +1,6 @@
 Package.describe({
   name: 'hoangdo94:scrape',
-  version: '0.0.10',
+  version: '0.0.11',
   summary: 'Scrape any Website or RSS/Atom-Feed with ease',
   git: 'https://github.com/hoangdo94/meteor-scrape',
   documentation: 'README.md'
