@@ -11,7 +11,6 @@ fragile RegExps!
 
     @ParseFeed = (xml) ->
       $ = cheerio.load xml, xmlMode: true
-      console.log $
       feed = {}
       feed.title = Text.clean $('title').first().text() or ""
       feed.link = Text.clean $('link').first().text() or ""
@@ -45,11 +44,13 @@ relevant data.
       data.pubDate = findPubDate $
       data.image = findImage $
       text = "#{data.title} #{data.description}"
-      data.content = text
+      console.log text
       data.language = Text.detectLanguage text
       foreignTags = $("category,categories").map((i,e) -> $(e).text()).get()
+      console.log foreignTags
       extractTags = Yaki(text, language: data.language).extract()
-      data.tags = _.union foreignTags, extractTags
+      hashTags = text.match(/(^|\s)#([^\s\.\/\\\[\]{}`~!@#$%^&*()<>,?;:'"]+)/g)
+      data.tags = _.union foreignTags, extractTags, hashTags
       return data
 
 The following helper functions are used by the mapItem function, for data
