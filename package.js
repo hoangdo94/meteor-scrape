@@ -1,6 +1,6 @@
 Package.describe({
   name: 'hoangdo94:scrape',
-  version: '0.0.12',
+  version: '0.0.13',
   summary: 'Scrape any Website or RSS/Atom-Feed with ease',
   git: 'https://github.com/hoangdo94/meteor-scrape',
   documentation: 'README.md'
@@ -37,8 +37,9 @@ Package.onUse(function(api) {
     'lib/text.coffee.md',
     'lib/scrape-request.coffee.md',
     'lib/parse-website.coffee.md',
+    'lib/parse-website-simple.coffee.md',
     'lib/parse-feed.coffee.md',
-    'lib/parse-wikipedia.coffee.md'
+    'lib/parse-wikipedia.coffee.md',
   ],['server']);
   api.addFiles("scrape-client.coffee.md",'client');
   api.addFiles("scrape-server.coffee.md","server");

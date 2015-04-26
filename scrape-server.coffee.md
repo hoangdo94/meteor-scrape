@@ -14,6 +14,13 @@ without any further parsing
           return obj
         catch e
           return {}
+      websiteSimple: (url) ->
+        try
+          html = ScrapeRequest.fetch url
+          data = ParseWebsiteSimple html
+          return data
+        catch e
+          return {}
       feed: (url) ->
         try
           xml = ScrapeRequest.fetch url
@@ -74,7 +81,5 @@ the transformation from any type of link to a clean absolute url.
         i.link = url.join i.link
         i.image = if i.image then url.join i.image else ""
         rx = _.map url.brands(), (e) -> new RegExp(e, "i")
-        i.tags = _.reject Yaki(i.tags).clean(), (tag) ->
-          _.some (r.test tag for r in rx)
         obj.items.push i
       return obj
